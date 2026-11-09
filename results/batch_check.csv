@@ -1,0 +1,8 @@
+"cohort","factor","levels","PC1_adjR2","PC2_adjR2","PC3_adjR2","PC4_adjR2","PC5_adjR2"
+"SCAN-B","Platform",2,0,0,0,0,0
+"SCAN-B","PAM50",5,0.536,0.475,0.065,0.112,0.382
+"TCGA-BRCA","Tissue_source_site",40,0.007,0.032,0.065,0.034,-0.007
+"TCGA-BRCA","Plate",42,0.036,0.032,0.045,-0.009,-0.011
+"TCGA-BRCA","PAM50",5,0.772,0.222,0.21,0.402,0.019
+"METABRIC","Processing_cohort",5,0.005,0.081,0.049,0.033,0.037
+"METABRIC","PAM50",7,0.71,0.298,0.318,0.261,0.044

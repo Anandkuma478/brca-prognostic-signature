@@ -1,0 +1,11 @@
+# Only code, result tables, figures and documentation are tracked.
+*
+!.gitignore
+!README.md
+!SOFTWARE_VERSIONS.txt
+!scripts/
+!scripts/*.R
+!results/
+!results/**
+!figures/
+!figures/**

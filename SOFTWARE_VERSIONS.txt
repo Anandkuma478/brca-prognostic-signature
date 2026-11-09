@@ -1,0 +1,30 @@
+Software versions used in the analysis (recorded 9 November 2026)
+
+== Environment brca_genomics ==
+R version 4.5.3 (2026-03-11) 
+TCGAbiolinks 2.38.0 
+edgeR 4.10.7 
+limma 3.68.5 
+DESeq2 1.50.2 
+glmnet 5.0 
+survival 3.8.12 
+doParallel 1.0.17 
+ggplot2 4.0.3 
+pheatmap 1.0.13 
+WGCNA 1.74 
+data.table 1.18.6.1 
+
+== Environment brca_modules ==
+R version 4.5.3 (2026-03-11) 
+STRINGdb 2.22.0 
+igraph 2.3.4 
+clusterProfiler 4.18.4 
+org.Hs.eg.db 3.22.0 
+msigdbr 26.1.1 
+GSVA 2.4.9 
+genefu 2.42.0 
+survival 3.8.12 
+timeROC 0.4.1 
+survminer 0.5.2 
+ggplot2 4.0.3 
+data.table 1.18.6.1 

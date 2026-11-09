@@ -1,0 +1,31 @@
+"gene","group","model_B_coefficient","paired_log2FC","tumours_stained","high","medium","low","not_detected","detected_pct","normal_glandular_level","normal_reliability"
+"VAV3","Stable signature gene",-0.133961808638938,1.48030726100977,12,0,3,7,2,83,NA,NA
+"ADRA2A","Stable signature gene",-0.102284380258209,-1.62395665209557,0,NA,NA,NA,NA,NA,NA,NA
+"BATF","Stable signature gene",-0.0736494473803663,1.01310070427099,8,0,0,1,7,12,"Not detected","Approved"
+"SIX2","Stable signature gene",0.076026518764109,1.46541460189523,0,NA,NA,NA,NA,NA,NA,NA
+"SPP1","Stable signature gene",0.0673972974443761,2.38942552262619,10,0,0,3,7,30,"Low","Enhanced"
+"RNASE1","Stable signature gene",0.0740419130875895,-1.03423544261204,10,0,0,0,10,0,"Not detected","Enhanced"
+"NXPH4","Stable signature gene",0.0700662403823649,1.4286057855753,0,NA,NA,NA,NA,NA,NA,NA
+"ABCB1","Stable signature gene",-0.122428643254923,-2.16003840259061,11,0,0,0,11,0,"Not detected","Enhanced"
+"SUSD4","Stable signature gene",0.0675692525399954,1.10970282241351,11,0,2,3,6,45,"Not detected","Uncertain"
+"RRAGD","Stable signature gene",0.0494808786057893,-1.33733844670541,11,0,7,4,0,100,"Low","Approved"
+"CDK1","Hub gene, red module",NA,3.03925819595748,11,3,8,0,0,100,"Medium","Enhanced"
+"CCNA2","Hub gene, red module",NA,2.81883264633277,11,0,5,5,1,91,"Medium","Enhanced"
+"BUB1","Hub gene, red module",NA,3.3829078659715,0,NA,NA,NA,NA,NA,NA,NA
+"DLGAP5","Hub gene, red module",NA,3.54361896334279,10,1,6,2,1,90,"Not detected","Enhanced"
+"BUB1B","Hub gene, red module",NA,3.01160883006639,0,NA,NA,NA,NA,NA,NA,NA
+"CCNB2","Hub gene, red module",NA,2.87800878893432,11,0,6,2,3,73,"Medium","Enhanced"
+"CDC20","Hub gene, red module",NA,3.23266048492662,12,2,10,0,0,100,"Low","Enhanced"
+"AURKB","Hub gene, red module",NA,3.06295375977129,11,0,2,8,1,91,"Low","Enhanced"
+"TOP2A","Hub gene, red module",NA,3.71619609736588,11,8,3,0,0,100,"Low","Enhanced"
+"KIF20A","Hub gene, red module",NA,3.60367594909298,10,2,6,2,0,100,"Medium","Approved"
+"ADIPOQ","Hub gene, green module",NA,-5.97507721461672,11,0,0,0,11,0,NA,NA
+"PPARG","Hub gene, green module",NA,-2.83880622076373,12,0,4,6,2,83,"Not detected","Approved"
+"LIPE","Hub gene, green module",NA,-4.18761972177434,11,0,2,2,7,36,"Not detected","Enhanced"
+"PLIN1","Hub gene, green module",NA,-5.74735100280937,12,0,9,1,2,83,"Not detected","Enhanced"
+"EGR1","Hub gene, green module",NA,-2.73313866895899,12,2,4,3,3,75,"Low","Supported"
+"FOS","Hub gene, green module",NA,-2.59303589727396,12,0,2,10,0,100,"Not detected","Approved"
+"FOSB","Hub gene, green module",NA,-3.90309177689415,12,0,1,5,6,50,"Not detected","Approved"
+"ATF3","Hub gene, green module",NA,-2.12310464022194,12,0,11,1,0,100,"Low","Approved"
+"NR4A1","Hub gene, green module",NA,-2.09104063278869,11,0,6,4,1,91,"Low","Approved"
+"EGR2","Hub gene, green module",NA,-2.04557874478352,0,NA,NA,NA,NA,NA,NA,NA

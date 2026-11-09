@@ -1,0 +1,15 @@
+"cohort","factor","stage","PC1_adjR2","PC2_adjR2","PC3_adjR2","PC4_adjR2","PC5_adjR2","max_adjR2"
+"SCAN-B","Platform","Before",0,0,0,0,0,0
+"SCAN-B","Platform","After",0,0,0,0,0,0
+"SCAN-B","PAM50","Before",0.536,0.475,0.065,0.112,0.382,0.536
+"SCAN-B","PAM50","After",0.536,0.475,0.065,0.112,0.382,0.536
+"TCGA-BRCA","Tissue_source_site","Before",0.007,0.032,0.065,0.034,-0.007,0.065
+"TCGA-BRCA","Tissue_source_site","After",-0.006,-0.031,-0.025,-0.001,-0.036,-0.001
+"TCGA-BRCA","Plate","Before",0.036,0.032,0.045,-0.009,-0.011,0.045
+"TCGA-BRCA","Plate","After",0.007,-0.031,-0.024,-0.02,-0.038,0.007
+"TCGA-BRCA","PAM50","Before",0.772,0.222,0.21,0.402,0.019,0.772
+"TCGA-BRCA","PAM50","After",0.813,0.181,0.172,0.455,0.019,0.813
+"METABRIC","Processing_cohort","Before",0.005,0.081,0.049,0.033,0.037,0.081
+"METABRIC","Processing_cohort","After",-0.001,0.001,0.004,0.001,-0.002,0.004
+"METABRIC","PAM50","Before",0.71,0.298,0.318,0.261,0.044,0.71
+"METABRIC","PAM50","After",0.714,0.315,0.347,0.208,0.044,0.714
