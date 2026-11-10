@@ -93,7 +93,7 @@ res$feature_lab <- factor(pretty(res$feature), levels = rev(pretty(order_f)))
 res$cohort <- factor(res$cohort, levels = c("SCAN-B", "TCGA-BRCA", "METABRIC"))
 res$panel <- paste("Model", res$model)
 g <- ggplot(res, aes(cohort, feature_lab, fill = rho)) + geom_tile(colour = "#fcfcfb", linewidth = 0.8) +
-  geom_text(aes(label = sprintf("%.2f", rho)), size = 2.8, colour = "#0b0b0b") + facet_wrap(~ panel) +
+  geom_text(aes(label = sprintf("%.2f", rho)), size = 3.4, colour = "#0b0b0b") + facet_wrap(~ panel) +
   scale_fill_gradient2(low = "#2a78d6", mid = "#f0efec", high = "#e34948", midpoint = 0, limits = c(-0.8, 0.8), oob = scales::squish, name = "Spearman rho") +
   labs(x = NULL, y = NULL) + theme_minimal(base_size = 10) +
   theme(panel.grid = element_blank(), strip.text = element_text(face = "bold"), axis.text.y = element_text(colour = "#0b0b0b"))
@@ -111,7 +111,7 @@ long$Group <- factor(long$Group, levels = c("Low risk", "High risk"))
 p$label <- ifelse(p$FDR < 0.05, "FDR < 0.05", ""); p$xpos <- pmax(p$mutated_low_pct, p$mutated_high_pct) + 2
 g <- ggplot(p, aes(y = gene)) + geom_segment(aes(x = mutated_low_pct, xend = mutated_high_pct, yend = gene), colour = "#c3c2b7", linewidth = 0.7) +
   geom_point(data = long, aes(pct, gene, colour = Group), size = 2.2) +
-  geom_text(aes(x = xpos, label = label), hjust = 0, size = 2.3, colour = "#52514e") + facet_grid(model ~ cohort) +
+  geom_text(aes(x = xpos, label = label), hjust = 0, size = 3.1, colour = "#52514e") + facet_grid(model ~ cohort) +
   scale_colour_manual(values = c(`Low risk` = "#2a78d6", `High risk` = "#eb6834"), name = NULL) + scale_x_continuous(expand = expansion(mult = c(0.02, 0.25))) +
   labs(x = "Patients with a non-synonymous mutation (%)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),
@@ -126,7 +126,7 @@ f$signature <- factor(f$signature, levels = rev(c("Model A", "Model B", "Oncotyp
 f$Group <- ifelse(grepl("^Model", f$signature), "This study", "Published (research-based)")
 g <- ggplot(f, aes(c_index, signature, colour = Group)) + geom_vline(xintercept = 0.5, linetype = 2, colour = "#c3c2b7") +
   geom_segment(aes(x = c_low, xend = c_high, yend = signature), linewidth = 0.7) + geom_point(size = 2.2) +
-  geom_text(aes(x = 0.81, label = sprintf("%.3f", c_index)), colour = "#52514e", size = 2.8, hjust = 1, show.legend = FALSE) +
+  geom_text(aes(x = 0.81, label = sprintf("%.3f", c_index)), colour = "#52514e", size = 3.3, hjust = 1, show.legend = FALSE) +
   facet_wrap(~ cohort) + scale_colour_manual(values = c(`This study` = "#2a78d6", `Published (research-based)` = "#eb6834"), name = NULL) +
   scale_x_continuous(limits = c(0.45, 0.82), breaks = c(0.5, 0.6, 0.7, 0.8)) + labs(x = "C-index for overall survival (95% bootstrap CI)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),

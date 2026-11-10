@@ -126,7 +126,7 @@ f$signature <- factor(f$signature, levels = rev(c("Model A", "Model B", "Oncotyp
 f$Group <- ifelse(grepl("^Model", f$signature), "This study", "Published (research-based)")
 g <- ggplot(f, aes(c_index, signature, colour = Group)) + geom_vline(xintercept = 0.5, linetype = 2, colour = "#c3c2b7") +
   geom_segment(aes(x = c_low, xend = c_high, yend = signature), linewidth = 0.7) + geom_point(size = 2.2) +
-  geom_text(aes(x = 0.81, label = sprintf("%.3f", c_index)), colour = "#52514e", size = 2.8, hjust = 1, show.legend = FALSE) +
+  geom_text(aes(x = 0.81, label = sprintf("%.3f", c_index)), colour = "#52514e", size = 3.3, hjust = 1, show.legend = FALSE) +
   facet_wrap(~ cohort) + scale_colour_manual(values = c(`This study` = "#2a78d6", `Published (research-based)` = "#eb6834"), name = NULL) +
   scale_x_continuous(limits = c(0.45, 0.82), breaks = c(0.5, 0.6, 0.7, 0.8)) + labs(x = "C-index for overall survival (95% bootstrap CI)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),

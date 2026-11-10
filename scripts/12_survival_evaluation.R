@@ -79,10 +79,15 @@ for (co in names(cohorts)) for (m in c("A", "B")) {
     logrank_p = 1 - pchisq(lr$chisq, 1))
   p <- ggsurvplot(fit, data = d, risk.table = TRUE, pval = TRUE, conf.int = FALSE, palette = c("#2166ac", "#b2182b"),
                   xlab = "Months", ylab = "Overall survival", title = sprintf("%s, Model %s", co, m),
-                  legend.labs = c("Low risk", "High risk"), legend.title = "", xlim = c(0, 180), break.time.by = 30,
-                  risk.table.height = 0.25, ggtheme = theme_bw(base_size = 11))
-  png(file.path(figdir, sprintf("km_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1700 / 220, height = 1500 / 220, units = "in", res = 600)
-  print(p); dev.off()
+                  legend.labs = c("Low risk", "High risk"), legend.title = "", xlim = c(0, 180), break.time.by = 60,
+                  risk.table.height = 0.3, ggtheme = theme_bw(base_size = 8.5), fontsize = 2.9, pval.size = 3, size = 0.5, censor.size = 2,
+                  font.main = c(8.5, "bold"), font.x = 8.5, font.y = 8.5, font.tickslab = 8, font.legend = 8,
+                  risk.table.title = "Number at risk", risk.table.y.text = FALSE, tables.theme = theme_cleantable(base_size = 8.5))
+  ## Same widened x range on curve and table (first and last risk-table numbers not clipped), panels aligned vertically
+  p$plot  <- p$plot  + coord_cartesian(xlim = c(-12, 190))
+  p$table <- p$table + coord_cartesian(xlim = c(-12, 190))
+  png(file.path(figdir, sprintf("km_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 2.4, height = 3.1, units = "in", res = 600)   # drawn near printed size so text is about 8 pt
+  print(ggpubr::ggarrange(p$plot, p$table, ncol = 1, heights = c(0.7, 0.3), align = "v")); dev.off()
 
   ## Time-dependent ROC
   ok <- TIMES[TIMES < max(d$time[d$event == 1])]
@@ -108,9 +113,10 @@ for (co in names(cohorts)) for (m in c("A", "B")) {
   slope <- summary(coxph(Surv(time, event) ~ lp, data = d))
   cal_out[[paste(co, m)]] <- cbind(cohort = co, model = m, horizon_months = CAL_T, obs,
                                    calibration_slope = slope$coefficients[1, "coef"], slope_se = slope$coefficients[1, "se(coef)"])
-  png(file.path(figdir, sprintf("calibration_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1300 / 220, height = 1300 / 220, units = "in", res = 600)
+  png(file.path(figdir, sprintf("calibration_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 2.4, height = 2.4, units = "in", res = 600, pointsize = 8.5)
+  par(mar = c(3, 3.1, 1.5, 0.5), mgp = c(1.9, 0.55, 0))
   lim <- c(0, max(obs$obs_high, obs$predicted, na.rm = TRUE) * 1.05)
-  plot(obs$predicted, obs$observed, xlim = lim, ylim = lim, pch = 19, col = "#b2182b", xlab = sprintf("Predicted risk of death by %d months", CAL_T),
+  plot(obs$predicted, obs$observed, xlim = lim, ylim = lim, pch = 19, col = "#b2182b", xlab = sprintf("Predicted risk at %d months", CAL_T),
        ylab = "Observed risk (Kaplan-Meier)", main = sprintf("%s, Model %s", co, m))
   arrows(obs$predicted, obs$obs_low, obs$predicted, obs$obs_high, length = 0.03, angle = 90, code = 3, col = "#b2182b"); abline(0, 1, lty = 2, col = "grey40")
   dev.off()

@@ -1,6 +1,6 @@
 """Assemble the multi-panel manuscript figures from the single panels written by the R scripts.
 
-Figure 9  (fig_km_panels.png):              km_*.png from 12_survival_evaluation.R, 2 columns
+Figure 9  (fig_km_panels.png):              km_*.png from 12_survival_evaluation.R, 3 columns
 Figure 10 (fig_calibration_panels.png):     calibration_*.png from 12_survival_evaluation.R, 3 columns
 Figure 11 (fig_batch_pca_before_after.png): batch_panel_*.png from 15_batch_correction_sensitivity.R, stacked
 
@@ -31,8 +31,8 @@ def grid(names, cols, out, print_width_in):
     print(out, sheet.size, f"{os.path.getsize(F + out) / 1e6:.1f} MB")
 
 
-grid(["km_SCANB_modelA.png", "km_SCANB_modelB.png", "km_TCGABRCA_modelA.png", "km_TCGABRCA_modelB.png",
-      "km_METABRIC_modelA.png", "km_METABRIC_modelB.png"], 2, "fig_km_panels.png", 6.0)
+grid(["km_SCANB_modelA.png", "km_TCGABRCA_modelA.png", "km_METABRIC_modelA.png",
+      "km_SCANB_modelB.png", "km_TCGABRCA_modelB.png", "km_METABRIC_modelB.png"], 3, "fig_km_panels.png", 6.0)
 grid(["calibration_SCANB_modelA.png", "calibration_TCGABRCA_modelA.png", "calibration_METABRIC_modelA.png",
       "calibration_SCANB_modelB.png", "calibration_TCGABRCA_modelB.png", "calibration_METABRIC_modelB.png"],
      3, "fig_calibration_panels.png", 6.0)

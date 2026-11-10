@@ -73,7 +73,7 @@ res$feature_lab <- factor(pretty(res$feature), levels = rev(pretty(order_f)))
 res$cohort <- factor(res$cohort, levels = c("SCAN-B", "TCGA-BRCA", "METABRIC"))
 res$panel <- paste("Model", res$model)
 g <- ggplot(res, aes(cohort, feature_lab, fill = rho)) + geom_tile(colour = "#fcfcfb", linewidth = 0.8) +
-  geom_text(aes(label = sprintf("%.2f", rho)), size = 2.8, colour = "#0b0b0b") + facet_wrap(~ panel) +
+  geom_text(aes(label = sprintf("%.2f", rho)), size = 3.4, colour = "#0b0b0b") + facet_wrap(~ panel) +
   scale_fill_gradient2(low = "#2a78d6", mid = "#f0efec", high = "#e34948", midpoint = 0, limits = c(-0.8, 0.8), oob = scales::squish, name = "Spearman rho") +
   labs(x = NULL, y = NULL) + theme_minimal(base_size = 10) +
   theme(panel.grid = element_blank(), strip.text = element_text(face = "bold"), axis.text.y = element_text(colour = "#0b0b0b"))

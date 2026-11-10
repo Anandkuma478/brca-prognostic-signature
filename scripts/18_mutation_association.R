@@ -89,7 +89,7 @@ long$Group <- factor(long$Group, levels = c("Low risk", "High risk"))
 p$label <- ifelse(p$FDR < 0.05, "FDR < 0.05", ""); p$xpos <- pmax(p$mutated_low_pct, p$mutated_high_pct) + 2
 g <- ggplot(p, aes(y = gene)) + geom_segment(aes(x = mutated_low_pct, xend = mutated_high_pct, yend = gene), colour = "#c3c2b7", linewidth = 0.7) +
   geom_point(data = long, aes(pct, gene, colour = Group), size = 2.2) +
-  geom_text(aes(x = xpos, label = label), hjust = 0, size = 2.3, colour = "#52514e") + facet_grid(model ~ cohort) +
+  geom_text(aes(x = xpos, label = label), hjust = 0, size = 3.1, colour = "#52514e") + facet_grid(model ~ cohort) +
   scale_colour_manual(values = c(`Low risk` = "#2a78d6", `High risk` = "#eb6834"), name = NULL) + scale_x_continuous(expand = expansion(mult = c(0.02, 0.25))) +
   labs(x = "Patients with a non-synonymous mutation (%)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),
