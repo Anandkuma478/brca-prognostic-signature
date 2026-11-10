@@ -39,7 +39,7 @@ p <- ggplot(pca, aes(PC1, PC2, color = group)) +
   geom_point(alpha = 0.7) +
   xlab(paste0("PC1: ", pv[1], "%")) + ylab(paste0("PC2: ", pv[2], "%")) +
   theme_bw()
-ggsave("figures/pca_tumor_vs_normal.png", p, width = 6, height = 5, dpi = 300)
+ggsave("figures/pca_tumor_vs_normal.png", p, width = 6, height = 5, dpi = 600)
 
 saveRDS(counts,    "data/counts_filtered.rds")
 saveRDS(meta,      "data/meta_clean.rds")

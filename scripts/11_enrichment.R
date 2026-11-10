@@ -60,7 +60,7 @@ g <- ggplot(p, aes(-log10(p.adjust), label, size = Count, colour = module)) + ge
   scale_colour_manual(values = setNames(modules, modules), guide = "none") +
   labs(x = "-log10 adjusted p", y = NULL, size = "Genes", title = "GO biological process, by WGCNA module") +
   theme_bw(base_size = 10)
-ggsave(file.path(figdir, "enrichment_go_modules.png"), g, width = 9, height = 7, dpi = 300)
+ggsave(file.path(figdir, "enrichment_go_modules.png"), g, width = 9, height = 7, dpi = 600)
 
 ## Hallmark GSEA, ranked by the paired Wald statistic
 de <- read.csv("results/DE_paired_tumor_vs_normal.csv")
@@ -80,5 +80,5 @@ s$ID <- factor(sub("HALLMARK_", "", s$ID), levels = sub("HALLMARK_", "", s$ID[or
 g2 <- ggplot(s, aes(NES, ID, fill = NES > 0)) + geom_col() +
   scale_fill_manual(values = c(`TRUE` = "#b2182b", `FALSE` = "#2166ac"), guide = "none") +
   labs(x = "Normalised enrichment score (tumour vs normal)", y = NULL, title = "Hallmark GSEA") + theme_bw(base_size = 10)
-ggsave(file.path(figdir, "enrichment_gsea_hallmark.png"), g2, width = 8, height = 6, dpi = 300)
+ggsave(file.path(figdir, "enrichment_gsea_hallmark.png"), g2, width = 8, height = 6, dpi = 600)
 cat("\nSaved: results/enrichment_*.csv, figures/enrichment_*.png\n")

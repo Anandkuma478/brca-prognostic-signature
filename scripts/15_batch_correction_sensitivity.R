@@ -46,7 +46,7 @@ panel <- function(before, after, group, title, legend_title, file, h = 3.1) {
   d <- rbind(data.frame(PC1 = before$x[, 1], PC2 = before$x[, 2], Group = group, stage = sprintf("Before correction (PC1 %.1f%%, PC2 %.1f%%)", before$var[1], before$var[2])),
              data.frame(PC1 = after$x[, 1],  PC2 = after$x[, 2],  Group = group, stage = sprintf("After correction (PC1 %.1f%%, PC2 %.1f%%)", after$var[1], after$var[2])))
   d$stage <- factor(d$stage, levels = unique(d$stage))
-  d <- d[order(d$Group == "Other plates", decreasing = TRUE), ]
+  d <- d[order(-table(d$Group)[d$Group]), ]   # largest group drawn first, so smaller groups stay visible on top
   lv <- setdiff(levels(factor(group)), "Other plates")
   cols <- setNames(c(SERIES[seq_along(lv)], if ("Other plates" %in% group) OTHER), c(lv, if ("Other plates" %in% group) "Other plates"))
   g <- ggplot(d, aes(PC1, PC2, colour = Group)) + geom_point(size = 0.55, alpha = 0.65, stroke = 0) +
@@ -55,7 +55,7 @@ panel <- function(before, after, group, title, legend_title, file, h = 3.1) {
     theme_bw(base_size = 10) + theme(panel.grid = element_line(colour = "#ecebe7", linewidth = 0.3), strip.background = element_blank(),
                                      strip.text = element_text(colour = "#52514e", size = 9), plot.title = element_text(face = "bold", size = 11),
                                      panel.border = element_rect(colour = "#c3c2b7"))
-  ggsave(file, g, width = 7.2, height = h, dpi = 300)
+  ggsave(file, g, width = 7.2, height = h, dpi = 600)
 }
 
 models <- readRDS("data/signature_scanb_two_models.rds"); sigs <- list(A = models$sigA, B = models$sigB)

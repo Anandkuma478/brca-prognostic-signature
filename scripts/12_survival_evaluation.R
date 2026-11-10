@@ -81,7 +81,7 @@ for (co in names(cohorts)) for (m in c("A", "B")) {
                   xlab = "Months", ylab = "Overall survival", title = sprintf("%s, Model %s", co, m),
                   legend.labs = c("Low risk", "High risk"), legend.title = "", xlim = c(0, 180), break.time.by = 30,
                   risk.table.height = 0.25, ggtheme = theme_bw(base_size = 11))
-  png(file.path(figdir, sprintf("km_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1700, height = 1500, res = 220)
+  png(file.path(figdir, sprintf("km_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1700 / 220, height = 1500 / 220, units = "in", res = 600)
   print(p); dev.off()
 
   ## Time-dependent ROC
@@ -108,7 +108,7 @@ for (co in names(cohorts)) for (m in c("A", "B")) {
   slope <- summary(coxph(Surv(time, event) ~ lp, data = d))
   cal_out[[paste(co, m)]] <- cbind(cohort = co, model = m, horizon_months = CAL_T, obs,
                                    calibration_slope = slope$coefficients[1, "coef"], slope_se = slope$coefficients[1, "se(coef)"])
-  png(file.path(figdir, sprintf("calibration_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1300, height = 1300, res = 220)
+  png(file.path(figdir, sprintf("calibration_%s_model%s.png", gsub("[^A-Za-z]", "", co), m)), width = 1300 / 220, height = 1300 / 220, units = "in", res = 600)
   lim <- c(0, max(obs$obs_high, obs$predicted, na.rm = TRUE) * 1.05)
   plot(obs$predicted, obs$observed, xlim = lim, ylim = lim, pch = 19, col = "#b2182b", xlab = sprintf("Predicted risk of death by %d months", CAL_T),
        ylab = "Observed risk (Kaplan-Meier)", main = sprintf("%s, Model %s", co, m))

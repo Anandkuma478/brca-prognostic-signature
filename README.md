@@ -40,6 +40,14 @@ Run every script from the project root, in the order below. Package versions are
 | 17 | `17_tcga_maf_download.R`, `18_mutation_association.R` | brca_genomics | Somatic mutations |
 | 18 | `19_protein_atlas.R` | brca_genomics | Human Protein Atlas summary |
 | 19 | `20_published_and_random_benchmark.R` | brca_modules | Published and random signature benchmark |
+| 20 | `21_final_figures.R` | brca_modules | Draws manuscript Figures 5, 6, 7, 8, 12, 13 and 14 at 600 dpi from the saved result tables |
+| 21 | `22_assemble_figures.py` | Python 3 with Pillow | Joins the panels of Figures 9, 10 and 11 |
+
+All manuscript figures are at least 600 dpi at their printed size. Figure 4 (`figures/fig_heatmap_top50_paired.png`) is the 600 dpi PNG export of the vector file `figures/heatmap_top50_paired.pdf`:
+
+```bash
+pdftoppm -png -r 600 -singlefile figures/heatmap_top50_paired.pdf figures/fig_heatmap_top50_paired
+```
 
 ## Outputs
 

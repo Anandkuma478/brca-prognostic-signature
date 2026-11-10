@@ -77,7 +77,7 @@ g <- ggplot(res, aes(cohort, feature_lab, fill = rho)) + geom_tile(colour = "#fc
   scale_fill_gradient2(low = "#2a78d6", mid = "#f0efec", high = "#e34948", midpoint = 0, limits = c(-0.8, 0.8), oob = scales::squish, name = "Spearman rho") +
   labs(x = NULL, y = NULL) + theme_minimal(base_size = 10) +
   theme(panel.grid = element_blank(), strip.text = element_text(face = "bold"), axis.text.y = element_text(colour = "#0b0b0b"))
-ggsave("figures/immune_association_heatmap.png", g, width = 8, height = 5.6, dpi = 300, bg = "white")
+ggsave("figures/immune_association_heatmap.png", g, width = 8, height = 5.6, dpi = 600, bg = "white")
 
 sm <- aggregate(cbind(rho, beta_PAM50_adjusted) ~ cohort + model, res, median)
 print(format(res[, c("cohort", "model", "feature", "rho", "FDR", "beta_PAM50_adjusted", "FDR_PAM50_adjusted")], digits = 3), row.names = FALSE)

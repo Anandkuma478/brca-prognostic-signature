@@ -5,6 +5,7 @@
 !SOFTWARE_VERSIONS.txt
 !scripts/
 !scripts/*.R
+!scripts/*.py
 !results/
 !results/**
 !figures/

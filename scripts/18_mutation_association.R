@@ -94,7 +94,7 @@ g <- ggplot(p, aes(y = gene)) + geom_segment(aes(x = mutated_low_pct, xend = mut
   labs(x = "Patients with a non-synonymous mutation (%)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),
         strip.background = element_blank(), strip.text = element_text(face = "bold"), legend.position = "top", panel.border = element_rect(colour = "#c3c2b7"))
-ggsave("figures/mutation_by_risk.png", g, width = 7.5, height = 5 + 0.08 * length(common), dpi = 300, bg = "white")
+ggsave("figures/mutation_by_risk.png", g, width = 7.5, height = 5 + 0.08 * length(common), dpi = 600, bg = "white")
 
 print(format(res[, c("cohort", "model", "gene", "n", "mutated_low_pct", "mutated_high_pct", "FDR", "OR_per_SD_PAM50", "FDR_PAM50")], digits = 3), row.names = FALSE)
 cat("\nTMB (TCGA-BRCA):\n"); print(format(tmb, digits = 3), row.names = FALSE)

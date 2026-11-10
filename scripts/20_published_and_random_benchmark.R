@@ -131,7 +131,7 @@ g <- ggplot(f, aes(c_index, signature, colour = Group)) + geom_vline(xintercept 
   scale_x_continuous(limits = c(0.45, 0.82), breaks = c(0.5, 0.6, 0.7, 0.8)) + labs(x = "C-index for overall survival (95% bootstrap CI)", y = NULL) + theme_bw(base_size = 10) +
   theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank(), panel.grid.major.x = element_line(colour = "#ecebe7", linewidth = 0.3),
         strip.background = element_blank(), strip.text = element_text(face = "bold"), legend.position = "top", panel.border = element_rect(colour = "#c3c2b7"))
-ggsave("figures/published_signature_forest.png", g, width = 8, height = 3.3, dpi = 300, bg = "white")
+ggsave("figures/published_signature_forest.png", g, width = 8, height = 3.3, dpi = 600, bg = "white")
 
 options(width = 170)
 print(format(res, digits = 3), row.names = FALSE); cat("\n"); print(ov, row.names = FALSE); cat("\n"); print(format(rnd, digits = 3), row.names = FALSE)

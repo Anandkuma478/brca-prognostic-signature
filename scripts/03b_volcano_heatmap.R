@@ -78,7 +78,7 @@ volcano <- function(d, title, stem) {
                    vjust = -0.5, show.legend = FALSE)
   }
   ggsave(paste0("figures/", stem, ".pdf"), g, width = 7, height = 6)
-  ggsave(paste0("figures/", stem, ".png"), g, width = 7, height = 6, dpi = 300)
+  ggsave(paste0("figures/", stem, ".png"), g, width = 7, height = 6, dpi = 600)
   data.frame(analysis = title, up = n[["Up"]], down = n[["Down"]], ns = n[["NS"]], total = nrow(d))
 }
 
